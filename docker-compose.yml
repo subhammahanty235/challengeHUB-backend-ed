@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672" 
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+      
+  main-server:
+    build: ./main-server
+    ports:
+      - "5000:5000" 
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+       - rabbitmq
+    healthcheck:
+      test: "curl -s -I http://localhost:5000/health | head -n 1 | grep 200"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  email-server:
+    build: ./email-server
+    ports:
+      - "3002:3002"
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+       - rabbitmq
+    healthcheck:
+      test: "curl -s -I http://localhost:3002/health | head -n 1 | grep 200"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"  # Expose Nginx on port 80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Mount Nginx configuration file
+    # depends_on:
+    #   main-server:
+    #     condition: service_healthy
+    #   email-server:
+    #     condition: service_healthy

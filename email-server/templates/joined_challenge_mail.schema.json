@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "required": ["name", "challengeName", "challengeDays", "companyName"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Recipient's name"
+      },
+      "challengeName": {
+        "type": "string",
+        "description": "Name of the challenge the user has joined"
+      },
+      "challengeDays": {
+        "type": "integer",
+        "description": "Total number of days in the challenge"
+      },
+      "companyName": {
+        "type": "string",
+        "description": "Name of the company sending the email"
+      },
+      "companyAddress": {
+        "type": "string",
+        "description": "Company’s physical address"
+      },
+      "currentYear": {
+        "type": "integer",
+        "description": "Current year for copyright purposes"
+      }
+    },
+    "additionalProperties": false
+  }
+  

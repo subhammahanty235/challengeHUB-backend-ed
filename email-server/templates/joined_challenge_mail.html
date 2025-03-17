@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to {{challengeName}}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background-color: #242424;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #999;
+      border-radius: 8px;
+      background: #242424;
+    }
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .highlight {
+      background-color: #fff;
+      padding: 0px 5px;
+      color: #535bf2;
+      font-weight: 800;
+      border-radius: 5px;
+    }
+    .footer {
+      font-size: 14px;
+      color: #999;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">Challenge <span class="highlight">HUB</span></h1>
+
+    <p>Hey {{name}},</p>
+
+    <p>Congratulations and welcome to <strong>{{challengeName}}</strong>! You've taken the first step towards a new challenge journey.</p>
+    
+    <p>Get ready for an exciting <strong>{{challengeDays}}-day</strong> challenge. Take a moment to prepare yourself mentally and physically for the rewarding journey ahead.</p>
+
+    <p>Remember to mark each day as completed when you finish your daily tasks. Consider adding a brief note each day to track your progress and celebrate your achievements.</p>
+
+    <p><strong>Don't procrastinate!</strong> Dive into the challenge, embrace the opportunities for growth, and make each day count in your journey of self-improvement.</p>
+
+    <p>Best Regards,<br>{{companyName}} Team</p>
+
+    <div class="footer">
+      <p>{{companyAddress}}</p>
+      <p>&copy; {{currentYear}} {{companyName}}. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

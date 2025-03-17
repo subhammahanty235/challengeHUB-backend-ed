@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "required": ["name"],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Recipient's name"
+      }
+    },
+    "additionalProperties": false
+  }
+  

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "required": ["otp", "otpExpiry"],
+    "properties": {
+      "otp": {
+        "type": "string",
+        "description": "One-Time Password (OTP) for user authentication"
+      },
+      "otpExpiry": {
+        "type": "integer",
+        "description": "OTP expiration time in minutes",
+        "default": 10
+      }
+    },
+    "additionalProperties": true
+  }
+  
