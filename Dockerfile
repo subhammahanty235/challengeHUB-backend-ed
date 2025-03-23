@@ -6,10 +6,10 @@ RUN echo "Hello from Dockerfile! This message is printed during the image build 
 WORKDIR /app
 RUN echo "Hello from Dockerfile! This message is printed during the image build. ---- 2"
 # Copy the backend folder
-COPY backend ./main-server
+COPY main-server ./main-server
 RUN echo "Hello from Dockerfile! This message is printed during the image build. --- 3"
 # Copy the node_server folder
-COPY node_server ./email-server
+COPY email-server ./email-server
 RUN echo "Hello from Dockerfile! This message is printed during the image build. --- 4"
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
